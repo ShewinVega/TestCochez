@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="container col-sm-12 col-md-12 col-lg-12 col-xl-12" id="head-table">
+    <div class="container col-sm-12 col-md-12 col-lg-12 col-xl-12" id="table-tittle">
+      <h2>Clientes</h2>
+      <div class="container" id="container-button">
+        <button type="button" class="btn btn-outline-primary centered button-style my-3" id="button3">Clientes
+          Gold</button>
+      </div>
+    </div>
+  </div>
+  <!-- table -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <div class="table-responsive col-sm-12 col-md-12 col-lg-12 col-xl-12" id="user-table">
+          <table class="table table-bordered table-dark filter-user" id="user-table">
+            <thead>
+              <tr>
+                <th scope="col" class="centered">Nombre</th>
+                <th scope="col" class="centered">Apellido</th>
+                <th scope="col" class="centered">Email</th>
+                <th scope="col" class="centered">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="table-handlebars">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="antiqueModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Antiguedad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 id="old"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="antiqueModal">Detalle del Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <div class="table-responsive" id="user-table">
+                <table class="table table-responsive table-bordered table-info" >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="centered">Dirección</th>
+                      <th scope="col" class="centered">Fecha de Inicio</th>
+                      <th scope="col" class="centered">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="user-detail-table" ></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+<script id="my-template" type="text/x-handlebars-template">
+  <!-- template -->
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td class="centered">{{first}}</td>
+      <td class="centered">{{last}}</td>
+      <td class="centered">{{email}}</td>
+      <td class="centered">
+        <div class="form-group row justify-content-center">
+          <div class=" col-sm-2 my-1">
+            <button type="button" onclick="userDetail('{{address}}','{{created}}','{{balance}}')" class="btn btn-outline-primary centered button-style btn-sm" id="button1" data-bs-toggle="modal" data-bs-target="#detailModal">Detalles</button>
+          </div>
+          <div class=" col-sm-2 mx-4 my-1">
+            <button type="button" onclick="seniorityUser('{{created}}','{{first}}')" class="btn btn-outline-primary centered button-style btn-sm" id="button2" data-bs-toggle="modal" data-bs-target="#antiqueModal">Antiguedad</button>
+          </div>   
+        </div>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</script>
+<script id="my-template-detail" type="text/x-handlebars-template">
+  <!-- template -->
+  <tbody>
+    <tr>
+      <td class="centered">{{address}}</td>
+      <td class="centered">{{created}}</td>
+      {{#greaterThan balance 1500}}
+      <td class="centered" style="color: green; font-weight: 600;">${{balance}}</td>
+      {{else}}
+      <td class="centered" style="color: blue; font-weight: 600;">${{balance}}</td>
+      {{/greaterThan}}
+    </tr>
+  </tbody>
+</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/filter.js" ></script>
+</body>
+
+</html>
