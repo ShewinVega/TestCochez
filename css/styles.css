@@ -1,0 +1,70 @@
+body {
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#table-tittle {
+  color: aliceblue;
+  display: flex;
+  justify-content: left;
+}
+
+.centered {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#button1 {
+  
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 25px;
+  padding-right: 65px;
+  font-size: 11px;
+}
+
+#button2 {
+  
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 18px;
+  padding-right: 70px;
+  font-size: 11px;
+}
+
+#button3 {
+  
+  display: inline-block;
+  width: 130px;
+  height: 30px;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 20px;
+  padding-right: 27px;
+  font-size: 11px;
+}
+
+.button-style {
+  border-color: rgb(136, 32, 32);
+  color: white;
+}
+
+#container-button {
+  display: flex;
+  justify-content: right;
+}
+
+#head-table {
+  margin-top: 2%;
+}
+
+#old {
+  color: black;
+  text-align: center;
+  text-justify: auto;
+}
